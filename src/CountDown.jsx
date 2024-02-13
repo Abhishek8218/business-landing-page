@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 
 
-
-const CountDown = () => {
+const CountDown = ({RegisterClick}) => {
 
 const [countDownTime, setCountDownTime] = useState({
   hours: "00",
@@ -75,11 +75,14 @@ useEffect(() => {
           </div>
         </div>
         <div className="flex flex-nowrap flex-shrink-0 justify-center items-center">
-          <a href="#" className="text-center w-1/2 px-4 py-2 bg-[#f9d22c] rounded-lg font-sans font-semibold text-white text-2xl hover:bg-[#cea805] transition-all ease-in-out shadow-md hover:cursor-pointer">Register Now</a>
+          <a href="#" className="text-center w-1/2 px-4 py-2 bg-[#f9d22c] rounded-lg font-sans font-semibold text-white text-2xl hover:bg-[#cea805] transition-all ease-in-out shadow-md hover:cursor-pointer " onClick={RegisterClick}>Register Now</a>
         </div>
       </div>
     </div>
   );
 };
-
+CountDown.propTypes = {
+  RegisterClick: PropTypes.func,
+ 
+};
 export default CountDown;

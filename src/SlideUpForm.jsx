@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,  } from "react";
+import PropTypes from "prop-types";
 
-const SlideUpForm = () => {
-  const [showForm, setShowForm] = useState(false);
+const SlideUpForm = ({setShowForm,showForm}) => {
+
+  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowForm(true);
-      // Disable scrolling
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-      // Re-enable scrolling
-    };
-  }, []);
+    if (initialLoad && !showForm) {
+      const timer = setTimeout(() => {
+        setShowForm(true);
+        setInitialLoad(false);
+        
+      }, 15000); // 15 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [initialLoad, showForm, setShowForm]);
 
   const handleClose = () => {
-    setShowForm(false);
-    // Re-enable scrolling
+    setShowForm(!showForm);
+
   };
 
   return (
@@ -50,7 +51,6 @@ const SlideUpForm = () => {
                 />
               </svg>
             </button>
-            {/* Your form content here */}
             <div className="max-w-md mx-auto">
               <div className="flex flex-col justify-center items-center space-y-5">
                 <h1 className="text-3xl text-[#526446] font-sans font-semibold text-balanced">Book Your Consultation</h1>
@@ -77,6 +77,12 @@ const SlideUpForm = () => {
       )}
     </div>
   );
+
+  
+};
+SlideUpForm.propTypes = {
+  setShowForm: PropTypes.func,
+  showForm: PropTypes.bool
 };
 
 export default SlideUpForm;
