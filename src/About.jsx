@@ -5,11 +5,11 @@ const About = () => {
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
             <div>
               <h2 className="text-3xl font-sans font-bold leading-tight text-[#f8cf1c] sm:text-4xl lg:text-5xl">
-                Meet Darsheel Savla
+                Meet John Watson
               </h2>
               <p className="max-w-lg mt-3 text-xl leading-relaxed text-gray-500 md:mt-8">
                
-Darsheel Savla, co-founder of PatilKaki, is a dynamic culinary leader launching a consultancy program for D2C entrepreneurs. Join him to supercharge your growth! 🚀📈
+John Wastson, co-founder of Y , is a dynamic culinary leader launching a consultancy program for D2C entrepreneurs. Join him to supercharge your growth! 🚀📈
               </p>
               <p className="mt-4 text-xl text-gray-600 md:mt-8">
                 <span className="relative inline-block">
